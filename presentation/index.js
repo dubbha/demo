@@ -29,42 +29,49 @@ import createTheme from '../assets/theme';
 const imageFileNames = [
   // intro, git, docs
   'croton.png',
-  'githubTeam.png',
-  'gitflow.png',
-  'gitBranchingStrategy.png',
-  'monorepo.png',
-  'readme.png',
-  'wiki.png',
-  'wikiPR.png',
-  'wikiReview.png',
-  'wikiStyle.png',
-  'wikiEnvs.png',
-  'createReactApp.png',
-  'reactNative.png',
-  'claudia.png',
-  // code quality, test/lint, github workflow
-  'jest.png',
-  'jestWeb.png',
-  'jestMobile.png',
-  'githubWorkflow.png',
-  'cypress.png',
-  'cypressRun.png',
-  'cypressOpen.png',
-  'stryker.png',
-  'strykerResults.png',
-  // deployment
+  'change.png',
   'deploy.png',
-  'awsCodeBuild.png',
-  'buildProjectLog.png',
-  's3Bucket.png',
-  's3StaticHosting.png',
-  'githubWebhooks.png',
-  'webhookRequest.png',
-  'webhookResponse.png',
-  'backend.png',
-  'apiGateway.png',
-  'lambda.png',
-  'postmanHealthcheck.png',
+  'nodemailer.png',
+  'ethereal.png',
+  'demo.png',
+
+  // 'githubTeam.png',
+  // 'gitflow.png',
+  // 'gitBranchingStrategy.png',
+  // 'monorepo.png',
+  // 'readme.png',
+  // 'wiki.png',
+  // 'wikiPR.png',
+  // 'wikiReview.png',
+  // 'wikiStyle.png',
+  // 'wikiEnvs.png',
+  // 'createReactApp.png',
+  // 'reactNative.png',
+  // 'claudia.png',
+
+  // code quality, test/lint, github workflow
+  // 'jest.png',
+  // 'jestWeb.png',
+  // 'jestMobile.png',
+  // 'githubWorkflow.png',
+  // 'cypress.png',
+  // 'cypressRun.png',
+  // 'cypressOpen.png',
+  // 'stryker.png',
+  // 'strykerResults.png',
+
+  // deployment
+  // 'awsCodeBuild.png',
+  // 'buildProjectLog.png',
+  // 's3Bucket.png',
+  // 's3StaticHosting.png',
+  // 'githubWebhooks.png',
+  // 'webhookRequest.png',
+  // 'webhookResponse.png',
+  // 'backend.png',
+  // 'apiGateway.png',
+  // 'lambda.png',
+  // 'postmanHealthcheck.png',
 ];
 const reqImage = name => ({ [name.split('.')[0]]: require(`../assets/${name}`) });
 const images = imageFileNames.reduce((acc, name) => ({ ...acc, ...reqImage(name) }), {});
@@ -230,13 +237,91 @@ export default class Presentation extends React.Component {
         controls={false}
         progress="bar"
       >
-        {imageFileNames.map(name => (
+        <FullScreenSlide>
+          <FullScreenImage src={images.croton} />
+        </FullScreenSlide>
+
+        <Slide>
+          <Image src={images.change} />
+          <List>
+            <ListItem><b>OUT</b>: Claudia + Lambda + Api Gateway</ListItem>
+            <ListItem><b>IN</b>: EC2</ListItem>
+          </List>
+        </Slide>
+
+        <FullScreenSlide padding={100}>
+          <Heading size={4}>Deployment to EC2</Heading>
+          <Image src={images.deploy} />
+        </FullScreenSlide>
+
+        <FullScreenSlide padding={100}>
+          <Heading size={4}>Sending Emails to Ethereal</Heading>
+          <Image src={images.nodemailer} />
+          <Image src={images.ethereal} />
+        </FullScreenSlide>
+
+        <FullScreenSlide padding={100}>
+          <Heading size={4}>AuthN via Back End</Heading>
+          <List>
+            <ListItem>Local AuthN: passport, JWT</ListItem>
+            <ListItem>Social AuthN: passport-facebook</ListItem>
+          </List>
+        </FullScreenSlide>
+
+        <FullScreenSlide padding={100}>
+          <Heading size={4}>Web tech stack:</Heading>
+          <List>
+            <ListItem style={{ fontSize: '3vh' }}>react-bootstrap</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}>redux, react-redux, redux-saga, connected-react-router</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}>Hooks: useState(), useEffect(), react-redux's useDispatch(), useSelector()</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}>Testing: @testing/library/react, redux-saga-test-plan for sagas</ListItem>
+          </List>
+        </FullScreenSlide>
+
+        <Slide>
+          <Heading size={4}>Web structure:</Heading>
+          <List>
+            <ListItem style={{ fontSize: '3vh' }}><b>elements</b> - wrapped react-bootstrap compnents</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}><b>components</b> - e.g. LoginForm</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}><b>pages</b> - e.g. Login page</ListItem>
+          </List>
+        </Slide>
+
+        <FullScreenSlide padding={100}>
+          <Heading size={4}>User Flow Demo</Heading>
+          <Link href="http://croton-web-dev.s3-website.eu-west-2.amazonaws.com/">
+            <Image src={images.demo} />
+          </Link>
+        </FullScreenSlide>
+
+        <FullScreenSlide padding={100}>
+          <Heading size={4}>Issues/Tech Debts:</Heading>
+          <List>
+            <ListItem style={{ fontSize: '3vh' }}>Social login: facebook requires HTTPS (self-signed on back), Google requires TLD (example.com). Move web to https with TLD? Social login from front not back? Share $?</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}>Email: config sending real email using Croton Gmail account starting from stage env</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}>DB/contracts: single DB, mized tables with fields from different flows, DB corruptions, contract, swagger</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}>coverage-badges force-pushing to PRs - store to AWS for dev branch</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}>core dependencies: investigate using dependencies from core after package build, currently using local deps</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}>No time for mobile</ListItem>
+          </List>
+        </FullScreenSlide>
+
+        {/* <Slide>
+          <Heading size={4}>Heading</Heading>
+          <List>
+            <ListItem>Item</ListItem>
+            <ListItem>Item</ListItem>
+            <ListItem>Item</ListItem>
+          </List>
+        </Slide> */}
+
+        {/* {imageFileNames.slice(0).map(name => (
           <FullScreenSlide key={name}>
             <Image src={images[name.split('.')[0]]} />
           </FullScreenSlide>
-        ))}
+        ))} */}
 
-        <Slide>
+        {/* <Slide>
           <Heading size={4}>Under the Hood</Heading>
 
           {
@@ -253,7 +338,7 @@ export default class Presentation extends React.Component {
               ['http://croton-web-prod.s3-website.eu-west-2.amazonaws.com/', 'web@prod'],
             ].map(([url, text], i) => <Link href={url} key={url} target="_blank" style={{ fontSize: '4vh', margin: '2vh', opacity: i % 2 ? 0.66 : 1 }}> {text} </Link>)
           }
-        </Slide>
+        </Slide> */}
 
       </Deck>
     );
