@@ -28,7 +28,10 @@ import createTheme from '../assets/theme';
 
 const imageFileNames = [
   // intro, git, docs
+  'cert.png',
   'croton.png',
+
+
   'change.png',
   'deploy.png',
   'nodemailer.png',
@@ -237,9 +240,90 @@ export default class Presentation extends React.Component {
         controls={false}
         progress="bar"
       >
+
         <FullScreenSlide>
-          <FullScreenImage src={images.croton} />
+          <Heading size={4}>Sprint #2</Heading>
         </FullScreenSlide>
+
+        <FullScreenSlide>
+          <Heading size={4}>TLD & HTTPS</Heading>
+          <Image src={images.cert} />
+        </FullScreenSlide>
+
+        <FullScreenSlide padding={350}>
+          <Heading size={4}>TLD & HTTPS</Heading>
+          <List>
+            <ListItem><Link href="http://croton.cf:8080/">http://croton.cf:8080/</Link> -- web@http</ListItem>
+            <ListItem><Link href="https://croton.cf:4430/">https://croton.cf:4430/</Link> -- web@https</ListItem>
+            <ListItem><Link href="http://croton.cf:8081/">http://croton.cf:8081/</Link> -- stage@http</ListItem>
+            <ListItem><Link href="https://croton.cf:4431/">https://croton.cf:4431/</Link> -- stage@https</ListItem>
+            <ListItem><Link href="http://croton.cf/">http://croton.cf/</Link> -- prod@http</ListItem>
+            <ListItem><Link href="https://croton.cf/">https://croton.cf/</Link> -- prod@https</ListItem>
+          </List>
+        </FullScreenSlide>
+
+        <FullScreenSlide>
+          <Image src={images.croton} />
+        </FullScreenSlide>
+
+        <FullScreenSlide padding={350}>
+          <Heading size={4}>Technicals</Heading>
+          <List>
+            <ListItem style={{ fontSize: '3vh' }}>DB Migrations</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}>Validation: move to custom hook</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}>Badges CI move to AWS</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}>Split DBs for envs</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}>Move axios api calls to separate service, update tests</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}>Separate package.json command to run web with a local backend</ListItem>
+
+          </List>
+        </FullScreenSlide>
+
+        <FullScreenSlide padding={350}>
+          <Heading size={4}>Bugs Fixed:</Heading>
+          <List>
+            <ListItem style={{ fontSize: '3vh' }}>Unable to update profile right after email confirm</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}>Error on email confirm due to re-rendering</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}>Fix bug in RN tests</ListItem>
+          </List>
+        </FullScreenSlide>
+
+        <FullScreenSlide padding={400}>
+          <Heading size={4}>User Flows:</Heading>
+          <List>
+            <ListItem style={{ fontSize: '3vh' }}>Login with Facebook</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}>Login with Google</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}>Show user profile</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}>Change user profile</ListItem>
+            <ListItem style={{ fontSize: '3vh' }}>Reset user email</ListItem>
+          </List>
+        </FullScreenSlide>
+
+        <FullScreenSlide padding={100}>
+          <Heading size={4}>User Flow Demo</Heading>
+          <Link href="https://croton.cf:4430/">
+            <Image src={images.demo} />
+          </Link>
+        </FullScreenSlide>
+
+        <FullScreenSlide padding={100}>
+          <Heading size={4}>Mobile!</Heading>
+        </FullScreenSlide>
+{/* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <Slide>
           <Image src={images.change} />
@@ -287,24 +371,8 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
-        <FullScreenSlide padding={100}>
-          <Heading size={4}>User Flow Demo</Heading>
-          <Link href="http://croton-web-dev.s3-website.eu-west-2.amazonaws.com/">
-            <Image src={images.demo} />
-          </Link>
-        </FullScreenSlide>
+ */}
 
-        <FullScreenSlide padding={100}>
-          <Heading size={4}>Issues/Tech Debts:</Heading>
-          <List>
-            <ListItem style={{ fontSize: '3vh' }}>Social login: facebook requires HTTPS (self-signed on back), Google requires TLD (example.com). Move web to https with TLD? Social login from front not back? Share $?</ListItem>
-            <ListItem style={{ fontSize: '3vh' }}>Email: config sending real email using Croton Gmail account starting from stage env</ListItem>
-            <ListItem style={{ fontSize: '3vh' }}>DB/contracts: single DB, mized tables with fields from different flows, DB corruptions, contract, swagger</ListItem>
-            <ListItem style={{ fontSize: '3vh' }}>coverage-badges force-pushing to PRs - store to AWS for dev branch</ListItem>
-            <ListItem style={{ fontSize: '3vh' }}>core dependencies: investigate using dependencies from core after package build, currently using local deps</ListItem>
-            <ListItem style={{ fontSize: '3vh' }}>No time for mobile</ListItem>
-          </List>
-        </FullScreenSlide>
 
         {/* <Slide>
           <Heading size={4}>Heading</Heading>
