@@ -19,7 +19,8 @@ import {
   Slide,
   Text,
   CodePane,
-  Link
+  Link,
+  SlideSet
 } from 'spectacle';
 
 // Import custom theme instead the default one
@@ -27,16 +28,29 @@ import {
 import createTheme from '../assets/theme';
 
 const imageFileNames = [
-  // intro, git, docs
-  'cert.png',
-  'croton.png',
+  'summer.png',
+  'robot.png',
+  'lhd.png',
+  'claudia.png',
+  'claudiaMoiseevna.png',
+  '5hours.png',
+  'rofl.png',
+  'tracker.png',
+  'pinch.png',
+  'sad.jpg',
+  'photos.jpg',
 
+  // mobile
+  'mobile7.gif',
+  'mobile8.gif',
 
-  'change.png',
-  'deploy.png',
-  'nodemailer.png',
-  'ethereal.png',
-  'demo.png',
+  // 'cert.png',
+  // 'croton.png',
+  // 'change.png',
+  // 'deploy.png',
+  // 'nodemailer.png',
+  // 'ethereal.png',
+  // 'demo.png',
 
   // 'githubTeam.png',
   // 'gitflow.png',
@@ -85,8 +99,13 @@ const sourceFileNames = [
 const reqSource = name => ({ [name.split('.')[0]]: require(`../assets/code/${name}`) });
 const sources = sourceFileNames.reduce((acc, name) => ({ ...acc, ...reqSource(name) }), {});
 
+
 const videos = {
-  // separationOfConcerns: require('../assets/separationOfConcerns.mp4'),
+  mobile1: require('../assets/mobile1.webm'),
+  mobile3: require('../assets/mobile3.webm'),
+  mobile41: require('../assets/mobile41.webm'),
+  mobile42: require('../assets/mobile42.webm'),
+  mobile5: require('../assets/mobile5.webm'),
 };
 
 // Require CSS
@@ -106,6 +125,10 @@ const theme = createTheme(
     fire: '#c2261f',
     gray: '#1F2022',
     cartoon: '#006dc6',
+    grassDarkest: '#175718',
+    grassDark: '#2f8611',
+    grass: '#7ec850',
+    grassLight: '#95e083',
   },
   {
     primary: 'Montserrat',
@@ -156,7 +179,7 @@ const FullScreenImage = ({
         src={src}
         style={{
           height: '100%',
-          margin
+          margin,
         }}
       />
     </div>
@@ -178,6 +201,17 @@ const Corner = ({ top, right, bottom, left, children }) => (
   </div>
 );
 
+const Aside = ({ left, right, children }) => (
+  <div
+    style={{
+      ...right ? { marginRight: right } : { marginLeft: left },
+      textAlign: (right ? 'right' : 'left')
+    }}
+  >
+    {children}
+  </div>
+);
+
 /* eslint-disable react/prop-types */
 const FullScreenVideo = ({ name, format = 'webm', loop = null }) => (
   <video
@@ -189,8 +223,21 @@ const FullScreenVideo = ({ name, format = 'webm', loop = null }) => (
     style={{
       position: 'absolute',
       top: 0,
-      left: 0
+      left: 0,
     }}
+  >
+    <source src={videos[name]} type={`video/${format}`} />
+  </video>
+);
+
+const Video = ({ name, format = 'webm', loop = null, height = null, width = null, style = {} }) => (
+  <video
+    // controls
+    autoPlay
+    { ...(loop ? { loop: true } : {}) }
+    width={width}
+    height={height}
+    style={style}
   >
     <source src={videos[name]} type={`video/${format}`} />
   </video>
@@ -211,21 +258,30 @@ const Examples = ({ names }) => (
 );
 
 const styles = {
-  brain: {
-    color: theme.screen.colors.brainDark,
+  grass: {
+    color: theme.screen.colors.grass,
   },
-  brain3D: {
-    color: theme.screen.colors.brainDark,
-    textShadow: `${theme.screen.colors.brainLight} 0px 1px 0px,
-      ${theme.screen.colors.brainLight} 0px 2px 0px,
-      ${theme.screen.colors.brainLight} 0px 3px 0px,
-      ${theme.screen.colors.brainLight} 0px 4px 0px`
+  grassLight: {
+    color: theme.screen.colors.grassLight,
   },
-  brain3DLight: {
-    color: theme.screen.colors.brainDark,
-    textShadow: `${theme.screen.colors.brainLight} 0px 1px 0px,
-      ${theme.screen.colors.brainLight} 0px 2px 0px,
-      ${theme.screen.colors.brainLight} 0px 3px 0px`
+  grassDark: {
+    color: theme.screen.colors.grassDark,
+  },
+  grassDarkest: {
+    color: theme.screen.colors.grassDarkest,
+  },
+  grass3D: {
+    color: theme.screen.colors.grassDark,
+    textShadow: `${theme.screen.colors.grassLight} 0px 1px 0px,
+      ${theme.screen.colors.grassLight} 0px 2px 0px,
+      ${theme.screen.colors.grassLight} 0px 3px 0px,
+      ${theme.screen.colors.grassLight} 0px 4px 0px`
+  },
+  grass3DLight: {
+    color: theme.screen.colors.grassDark,
+    textShadow: `${theme.screen.colors.grassLight} 0px 1px 0px,
+      ${theme.screen.colors.grassLight} 0px 2px 0px,
+      ${theme.screen.colors.grassLight} 0px 3px 0px`
   },
 };
 
@@ -240,17 +296,238 @@ export default class Presentation extends React.Component {
         controls={false}
         progress="bar"
       >
+        <FullScreenImage src={images.summer} style={{ backgroundColor: 'black' }} />
+
+        <Slide>
+          <Heading>Команда</Heading>
+        </Slide>
+        <Slide>
+          <Heading>Ограничения: Время</Heading>
+        </Slide>
 
         <FullScreenSlide>
+          <Image src={images['5hours']} />
+          <Appear>
+            <Image
+              src={images.rofl}
+              style={{
+                position: 'absolute',
+                margin: 0,
+                top: 'calc(50% + 130px)',
+                left: 'calc(50% + 190px)',
+              }}
+            />
+          </Appear>
+        </FullScreenSlide>
+        <FullScreenSlide>
+          <Image src={images.tracker} />
+          <Appear>
+            <Image
+              src={images.pinch}
+              style={{
+                position: 'absolute',
+                margin: 0,
+                top: 'calc(50% + 330px)',
+                left: 'calc(50% + 700px)',
+              }}
+            />
+          </Appear>
+        </FullScreenSlide>
+        <FullScreenImage src={images.lhd} />
+
+        <Slide>
+          <Heading>Ограничения: Пространство</Heading>
+        </Slide>
+
+        <Slide>
+          <Heading>Процессы</Heading>
+        </Slide>
+
+        <FullScreenSlide bgImage={images.sad}>
+          <Corner left="20vh" top="20vh">
+            <Heading>Проблема</Heading>
+          </Corner>
+        </FullScreenSlide>
+        <FullScreenImage src={images.robot} />
+
+
+        <FullScreenSlide>
+          <Image src={images.claudia}/>
+          <Appear>
+            <Image
+              src={images.claudiaMoiseevna}
+              style={{
+                position: 'absolute',
+                margin: 0,
+                top: 'calc(50% - 318px)',
+                left: 'calc(50% - 318px)',
+              }}
+            />
+          </Appear>
+        </FullScreenSlide>
+
+        {/* Mobile */}
+        <SlideSet style={{ backgroundColor: '#161616' }}>
+          <FullScreenSlide>
+            <Corner top="10vh" left="10vh">
+              <Heading style={{ marginBottom: '4vh' }}>Mobile</Heading>
+              <Heading size={5} style={{ color: 'white', lineHeight: '2' }}>Коротко о проекте?</Heading>
+              <Heading size={5} style={{ color: 'white', lineHeight: '2' }}>Было круто!</Heading>
+            </Corner>
+            <Aside right="10vw">
+              <Video name="mobile1" loop height="1000px"/>
+            </Aside>
+          </FullScreenSlide>
+          <FullScreenSlide>
+            <Corner top="10vh" left="10vh">
+              <Heading size={4} style={{ marginBottom: '8vh' }}>Задача</Heading>
+              <List style={{ color: 'white', fontWeight: 700, lineHeight: '1.5', listStyle: 'disc outside none', marginLeft: '2.5vw' }}>
+                <ListItem>Просто развернуть проект</ListItem>
+                <ListItem>Просто догнать ребят</ListItem>
+                <ListItem>Просто запилить рабочий прототип для мобайла</ListItem>
+              </List>
+              <Appear>
+                <Heading size={4} style={{ marginTop: '8vh', color: 'white' }}>Но...</Heading>
+              </Appear>
+            </Corner>
+          </FullScreenSlide>
+          <FullScreenSlide>
+            <Corner top="10vh" left="10vh">
+              <div style={{ width: '55vw' }}>
+                <Heading size={4} style={{ marginBottom: '8vh' }}>#1 Активация email</Heading>
+                <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Проблема</Heading>
+                <Text style={{ color: 'white' }}>5 шагов, 2-3 приложения</Text>
+                <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Решение</Heading>
+                <Text style={{ color: 'white' }}>Нотифай с кодом активации</Text>
+                <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Результат</Heading>
+                <Text style={{ color: 'white' }}>3 шага, 1 приложение</Text>
+              </div>
+            </Corner>
+            <Aside right="10vw">
+              <Video name="mobile3" loop height="1000px"/>
+            </Aside>
+          </FullScreenSlide>
+          <FullScreenSlide>
+            <Corner top="10vh" left="10vh">
+              <Heading size={4} style={{ marginBottom: '8vh' }}>#2 Кроссплатформенность</Heading>
+              <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Проблема</Heading>
+              <Text style={{ color: 'white' }}>Отличия</Text>
+              <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Решение</Heading>
+              <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+                <ListItem>Сравнивать</ListItem>
+                <ListItem>Поправлять</ListItem>
+                <ListItem>Сравнивать</ListItem>
+              </List>
+              <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Результат</Heading>
+              <Text style={{ color: 'white', lineHeight: '1.5' }}>Компоненты выглядят похоже...</Text>
+              <Text style={{ color: 'white', lineHeight: '1.5' }}>Но понимаешь ценность хорошего <nobr>UX/UI-дизайнера</nobr></Text>
+            </Corner>
+            <Corner right="28vw" top="20vh">
+              <Video name="mobile41" loop height="650px"/>
+            </Corner>
+            <Corner right="5vw" top="20vh">
+              <Video name="mobile42" loop height="650px"/>
+            </Corner>
+          </FullScreenSlide>
+          <FullScreenSlide>
+            <Corner top="10vh" left="10vh">
+              <div style={{ width: '75vw' }}>
+                <Heading size={4} style={{ marginBottom: '8vh' }}>#3 Интеграция с RRule</Heading>
+                <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Проблема</Heading>
+                <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+                  <ListItem>Подавать расписания в одном формате с веб-частью</ListItem>
+                  <ListItem>Нет компонента React RRule Generator для React Native</ListItem>
+                </List>          
+              </div>
+            </Corner>
+          </FullScreenSlide>
+          <FullScreenSlide>
+            <Corner top="10vh" left="10vh">
+              <div style={{ width: '75vw' }}>
+                <Heading size={4} style={{ marginBottom: '8vh' }}>#3 Интеграция с RRule</Heading>
+                <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Решение</Heading>
+                <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+                  <ListItem>Смотрим как работает RRule Generator</ListItem>
+                  <ListItem>Создаем компоненты с нужным функционалом</ListItem>
+                </List>
+                <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Результат</Heading>
+                <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+                  <ListItem>Одинаковые форматы</ListItem>
+                  <ListItem>Нет проблем с расписанием</ListItem>
+                </List>
+              </div>
+            </Corner>
+            <Aside right="5vw">
+              <Video name="mobile5" loop height="1000px"/>
+            </Aside>
+          </FullScreenSlide>
+          <FullScreenSlide>
+            <Corner top="10vh" left="10vh">
+              <div style={{ width: '55vw' }}>
+                <Heading size={4} style={{ marginBottom: '8vh' }}>#4 Формирование рамок</Heading>
+
+                <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Проблема</Heading>
+                <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+                  <ListItem>3 месяца на всё, 2 – на мобайл</ListItem>
+                  <ListItem>Желание обязательно что-то улучшить</ListItem>
+                  <ListItem>Решение понять сколько мы реально можем сделать за выделенное время</ListItem>
+                </List>
+              </div>
+            </Corner>
+            <Corner top="10vh" right="15vh">
+              <Image src={images.mobile7} style={{ width: '25vw' }} />
+            </Corner>
+          </FullScreenSlide>
+          <FullScreenSlide>
+            <Corner top="10vh" left="10vh">
+              <div style={{ width: '60vw' }}>
+                <Heading size={4} style={{ marginBottom: '8vh' }}>#4 Формирование рамок</Heading>
+                <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Решение</Heading>
+                <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+                  <ListItem>Разделять базовый функционал от новых фич</ListItem>
+                  <ListItem>Совместное решение честно остановиться</ListItem>
+                </List>
+                <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Результат</Heading>
+                <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+                  <ListItem>Общение и веселье в команде</ListItem>
+                  <ListItem>Опыт быстрого освоения нового</ListItem>
+                  <ListItem>Азарт</ListItem>
+                  <ListItem>Рабочий прототип продукта, который каждый может подпилить под себя</ListItem>
+                </List>
+              </div>
+            </Corner>
+            <Corner top="10vh" right="15vh">
+              <Image src={images.mobile8} style={{ width: '25vw' }} />
+            </Corner>
+          </FullScreenSlide>
+        </SlideSet>
+
+        <FullScreenSlide>
+          <Corner left="55px" top="55px">
+            <Heading style={styles.grass3D}>Всё будет Кротон!</Heading>
+          </Corner>
+          <Image src={images.photos} />
+          <Corner right="60px" bottom="60px">
+            <Link href="https://t.me/growingPrivateAvocado">https://t.me/growingPrivateAvocado</Link>
+          </Corner>
+        </FullScreenSlide>
+
+
+
+
+
+
+
+        {/* <FullScreenSlide style={{ backgroundColor: 'white' }}>
           <Heading size={4}>Sprint #2</Heading>
         </FullScreenSlide>
 
-        <FullScreenSlide>
+        <FullScreenSlide style={{ backgroundColor: 'white' }}>
           <Heading size={4}>TLD & HTTPS</Heading>
           <Image src={images.cert} />
         </FullScreenSlide>
 
-        <FullScreenSlide padding={350}>
+        <FullScreenSlide padding={350} style={{ backgroundColor: 'white' }}>
           <Heading size={4}>TLD & HTTPS</Heading>
           <List>
             <ListItem><Link href="http://croton.cf:8080/">http://croton.cf:8080/</Link> -- web@http</ListItem>
@@ -262,11 +539,7 @@ export default class Presentation extends React.Component {
           </List>
         </FullScreenSlide>
 
-        <FullScreenSlide>
-          <Image src={images.croton} />
-        </FullScreenSlide>
-
-        <FullScreenSlide padding={350}>
+        <FullScreenSlide padding={350} style={{ backgroundColor: 'white' }}>
           <Heading size={4}>Technicals</Heading>
           <List>
             <ListItem style={{ fontSize: '3vh' }}>DB Migrations</ListItem>
@@ -279,7 +552,7 @@ export default class Presentation extends React.Component {
           </List>
         </FullScreenSlide>
 
-        <FullScreenSlide padding={350}>
+        <FullScreenSlide padding={350} style={{ backgroundColor: 'white' }}>
           <Heading size={4}>Bugs Fixed:</Heading>
           <List>
             <ListItem style={{ fontSize: '3vh' }}>Unable to update profile right after email confirm</ListItem>
@@ -288,7 +561,7 @@ export default class Presentation extends React.Component {
           </List>
         </FullScreenSlide>
 
-        <FullScreenSlide padding={400}>
+        <FullScreenSlide padding={400} style={{ backgroundColor: 'white' }}>
           <Heading size={4}>User Flows:</Heading>
           <List>
             <ListItem style={{ fontSize: '3vh' }}>Login with Facebook</ListItem>
@@ -299,16 +572,18 @@ export default class Presentation extends React.Component {
           </List>
         </FullScreenSlide>
 
-        <FullScreenSlide padding={100}>
+        <FullScreenSlide padding={100} style={{ backgroundColor: 'white' }}>
           <Heading size={4}>User Flow Demo</Heading>
           <Link href="https://croton.cf:4430/">
             <Image src={images.demo} />
           </Link>
         </FullScreenSlide>
 
-        <FullScreenSlide padding={100}>
+        <FullScreenSlide padding={100} style={{ backgroundColor: 'white' }}>
           <Heading size={4}>Mobile!</Heading>
-        </FullScreenSlide>
+        </FullScreenSlide> */}
+
+
 {/* 
 
 
