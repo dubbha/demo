@@ -372,7 +372,9 @@ export default class Presentation extends React.Component {
             <Corner top="10vh" left="10vh">
               <Heading style={{ marginBottom: '4vh' }}>Mobile</Heading>
               <Heading size={5} style={{ color: 'white', lineHeight: '2' }}>Коротко о проекте?</Heading>
-              <Heading size={5} style={{ color: 'white', lineHeight: '2' }}>Было круто!</Heading>
+              <Appear>
+                <Heading size={5} style={{ color: 'white', lineHeight: '2' }}>Было круто!</Heading>
+              </Appear>
             </Corner>
             <Aside right="10vw">
               <Video name="mobile1" loop height="1000px"/>
@@ -382,9 +384,15 @@ export default class Presentation extends React.Component {
             <Corner top="10vh" left="10vh">
               <Heading size={4} style={{ marginBottom: '8vh' }}>Задача</Heading>
               <List style={{ color: 'white', fontWeight: 700, lineHeight: '1.5', listStyle: 'disc outside none', marginLeft: '2.5vw' }}>
-                <ListItem>Просто развернуть проект</ListItem>
-                <ListItem>Просто догнать ребят</ListItem>
-                <ListItem>Просто запилить рабочий прототип для мобайла</ListItem>
+                <Appear>
+                  <ListItem>Просто развернуть проект</ListItem>
+                </Appear>
+                <Appear>
+                  <ListItem>Просто догнать ребят</ListItem>
+                </Appear>
+                <Appear>
+                  <ListItem>Просто запилить рабочий прототип для мобайла</ListItem>
+                </Appear>
               </List>
               <Appear>
                 <Heading size={4} style={{ marginTop: '8vh', color: 'white' }}>Но...</Heading>
@@ -395,12 +403,24 @@ export default class Presentation extends React.Component {
             <Corner top="10vh" left="10vh">
               <div style={{ width: '55vw' }}>
                 <Heading size={4} style={{ marginBottom: '8vh' }}>#1 Активация email</Heading>
-                <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Проблема</Heading>
-                <Text style={{ color: 'white' }}>5 шагов, 2-3 приложения</Text>
-                <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Решение</Heading>
-                <Text style={{ color: 'white' }}>Нотифай с кодом активации</Text>
-                <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Результат</Heading>
-                <Text style={{ color: 'white' }}>3 шага, 1 приложение</Text>
+                <Appear>
+                  <div>
+                    <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Проблема</Heading>
+                    <Text style={{ color: 'white' }}>5 шагов, 2-3 приложения</Text>
+                  </div>
+                </Appear>
+                <Appear>
+                  <div>
+                    <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Решение</Heading>
+                    <Text style={{ color: 'white' }}>Нотифай с кодом активации</Text>
+                  </div>
+                </Appear>
+                <Appear>
+                  <div>
+                    <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Результат</Heading>
+                    <Text style={{ color: 'white' }}>3 шага, 1 приложение</Text>
+                  </div>
+                </Appear>
               </div>
             </Corner>
             <Aside right="10vw">
@@ -410,51 +430,78 @@ export default class Presentation extends React.Component {
           <FullScreenSlide>
             <Corner top="10vh" left="10vh">
               <Heading size={4} style={{ marginBottom: '8vh' }}>#2 Кроссплатформенность</Heading>
-              <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Проблема</Heading>
-              <Text style={{ color: 'white' }}>Отличия</Text>
-              <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Решение</Heading>
-              <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
-                <ListItem>Сравнивать</ListItem>
-                <ListItem>Поправлять</ListItem>
-                <ListItem>Сравнивать</ListItem>
-              </List>
-              <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Результат</Heading>
-              <Text style={{ color: 'white', lineHeight: '1.5' }}>Компоненты выглядят похоже...</Text>
-              <Text style={{ color: 'white', lineHeight: '1.5' }}>Но понимаешь ценность хорошего <nobr>UX/UI-дизайнера</nobr></Text>
+              <Appear>
+                <div>
+                  <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Проблема</Heading>
+                  <Text style={{ color: 'white' }}>Внешние отличия компонентов</Text>
+                </div>
+              </Appear>
+              <Appear>
+                <div>
+                  <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Решение</Heading>
+                  <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+                    <ListItem>Сравнивать</ListItem>
+                    <ListItem>Поправлять</ListItem>
+                    <ListItem>Сравнивать</ListItem>
+                  </List>
+                </div>
+              </Appear>
+              <Appear>
+                <div>
+                  <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Результат</Heading>
+                  <Appear>
+                    <div style={{ position: 'absolute', left: 0 }}>
+                      <Text style={{ color: 'white', lineHeight: '1.5' }}>Компоненты выглядят похоже...</Text>
+                    </div>
+                  </Appear>
+                  <Appear>
+                    <div style={{ position: 'absolute', left: 0, background: '#161616' }}>
+                      <Text style={{ color: 'white', lineHeight: '1.5' }}>Начинаешь искать UX/UI-дизайнера</Text>
+                    </div>
+                  </Appear>
+                </div>
+              </Appear>
             </Corner>
-            <Corner right="28vw" top="20vh">
-              <Video name="mobile41" loop height="650px"/>
-            </Corner>
-            <Corner right="5vw" top="20vh">
-              <Video name="mobile42" loop height="650px"/>
-            </Corner>
-          </FullScreenSlide>
-          <FullScreenSlide>
-            <Corner top="10vh" left="10vh">
-              <div style={{ width: '75vw' }}>
-                <Heading size={4} style={{ marginBottom: '8vh' }}>#3 Интеграция с RRule</Heading>
-                <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Проблема</Heading>
-                <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
-                  <ListItem>Подавать расписания в одном формате с веб-частью</ListItem>
-                  <ListItem>Нет компонента React RRule Generator для React Native</ListItem>
-                </List>          
+            <div style={{ position: "absolute",  top: "25vh", right: 0, width: "50%", height: "75vh", overflow: "hidden" }}>
+              <div position="relative">
+                <Corner right="28vw" top="-30px">
+                  <Video name="mobile42" loop height="650px"/>
+                </Corner>
+                <Corner right="5vw" top="3vh">
+                  <Video name="mobile41" loop height="650px"/>
+                </Corner>
               </div>
-            </Corner>
+            </div>
           </FullScreenSlide>
           <FullScreenSlide>
             <Corner top="10vh" left="10vh">
-              <div style={{ width: '75vw' }}>
+              <div style={{ width: '57vw', height: "90vh" }}>
                 <Heading size={4} style={{ marginBottom: '8vh' }}>#3 Интеграция с RRule</Heading>
-                <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Решение</Heading>
-                <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
-                  <ListItem>Смотрим как работает RRule Generator</ListItem>
-                  <ListItem>Создаем компоненты с нужным функционалом</ListItem>
-                </List>
-                <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Результат</Heading>
-                <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
-                  <ListItem>Одинаковые форматы</ListItem>
-                  <ListItem>Нет проблем с расписанием</ListItem>
-                </List>
+                <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                  <Appear>
+                    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: '#161616'}}>
+                      <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Проблема</Heading>
+                      <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+                        <ListItem>Подавать расписания в одном формате с веб-частью</ListItem>
+                        <ListItem>Нет компонента React RRule Generator для React Native</ListItem>
+                      </List>          
+                    </div>
+                  </Appear>
+                  <Appear>
+                    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: '#161616'}}>
+                      <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Решение</Heading>
+                      <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+                        <ListItem>Смотрим как работает RRule Generator</ListItem>
+                        <ListItem>Создаем компоненты с нужным функционалом</ListItem>
+                      </List>
+                      <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Результат</Heading>
+                      <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+                        <ListItem>Одинаковые форматы</ListItem>
+                        <ListItem>Нет проблем с расписанием</ListItem>
+                      </List>
+                    </div>
+                  </Appear>
+                </div>
               </div>
             </Corner>
             <Aside right="5vw">
