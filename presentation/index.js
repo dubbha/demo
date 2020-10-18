@@ -504,7 +504,7 @@ export default class Presentation extends React.Component {
                   </Appear>
                   <Appear>
                     <div style={{ position: 'absolute', left: 0, background: '#161616' }}>
-                      <Text style={{ color: 'white', lineHeight: '1.5' }}>Начинаешь искать UX/UI-дизайнера</Text>
+                      <Text style={{ color: 'white', lineHeight: '1.5' }}>Но начинаешь искать UX/UI-дизайнера</Text>
                     </div>
                   </Appear>
                 </div>
@@ -542,11 +542,15 @@ export default class Presentation extends React.Component {
                         <ListItem>Смотрим как работает RRule Generator</ListItem>
                         <ListItem>Создаем компоненты с нужным функционалом</ListItem>
                       </List>
-                      <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Результат</Heading>
-                      <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
-                        <ListItem>Одинаковые форматы</ListItem>
-                        <ListItem>Нет проблем с расписанием</ListItem>
-                      </List>
+                      <Appear>
+                        <div>
+                          <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Результат</Heading>
+                          <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+                            <ListItem>Одинаковые форматы</ListItem>
+                            <ListItem>Нет проблем с расписанием</ListItem>
+                          </List>
+                        </div>
+                      </Appear>
                     </div>
                   </Appear>
                 </div>
@@ -556,47 +560,53 @@ export default class Presentation extends React.Component {
               <Video name="mobile5" loop height="1000px"/>
             </Aside>
           </FullScreenSlide>
-
           <FullScreenSlide>
             <Corner top="10vh" left="10vh">
               <div style={{ width: '55vw' }}>
                 <Heading size={4} style={{ marginBottom: '8vh' }}>#4 Формирование рамок</Heading>
-                <Appear>
-                  <div>
-                    <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Проблема</Heading>
-                    <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
-                      <ListItem>3 месяца на всё, 2 – на мобайл</ListItem>
-                      <ListItem>Желание обязательно что-то улучшить</ListItem>
-                      <ListItem>Решение понять сколько мы реально можем сделать за выделенное время</ListItem>
-                    </List>
-                  </div>
-                </Appear>
+                <div style={{ position: "relative", height: "90vh" }}>
+                  <Appear>
+                    <div style={{ position: "absolute", left: "0", top: "0", width: "100%", height: "100%", background: "#161616"}}>
+                      <div style={{ position: "relative", width: "100%", height: "100%" }}>
+                        <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Проблема</Heading>
+                        <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+                          <ListItem>3 месяца на всё, 2 – на мобайл</ListItem>
+                          <ListItem>Желание обязательно что-то улучшить</ListItem>
+                          <ListItem>Решение понять сколько мы реально можем сделать за выделенное время</ListItem>
+                        </List>
+                        <Corner top="-16.3vh" right="-56.7vh">
+                          <Image src={images.mobile7} style={{ width: '25vw' }} />
+                        </Corner>
+                      </div>
+                    </div>
+                  </Appear>
+                  <Appear>
+                    <div style={{ position: "absolute", left: "0", top: "0", width: "100%", height: "100%", background: "#161616" }}>
+                      <div style={{ position: "relative", width: "100%", height: "100%" }}>
+                        <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Решение</Heading>
+                        <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+                          <ListItem>Разделять базовый функционал от новых фич</ListItem>
+                          <ListItem>Совместное решение честно остановиться</ListItem>
+                        </List>
+                        <Appear>
+                          <div>
+                            <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Результат</Heading>
+                            <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+                              <ListItem>Общение и веселье в команде</ListItem>
+                              <ListItem>Опыт быстрого освоения нового</ListItem>
+                              <ListItem>Азарт</ListItem>
+                              <ListItem>Рабочий прототип продукта, который каждый может подпилить под себя</ListItem>
+                            </List>
+                            <Corner top="-16.3vh" right="-56.7vh">
+                              <Image src={images.mobile8} style={{ width: '25vw' }} />
+                            </Corner>
+                          </div>
+                        </Appear>
+                      </div>
+                    </div>
+                  </Appear>
+                </div>
               </div>
-            </Corner>
-            <Corner top="10vh" right="15vh">
-              <Image src={images.mobile7} style={{ width: '25vw' }} />
-            </Corner>
-          </FullScreenSlide>
-          <FullScreenSlide>
-            <Corner top="10vh" left="10vh">
-              <div style={{ width: '60vw' }}>
-                <Heading size={4} style={{ marginBottom: '8vh' }}>#4 Формирование рамок</Heading>
-                <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Решение</Heading>
-                <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
-                  <ListItem>Разделять базовый функционал от новых фич</ListItem>
-                  <ListItem>Совместное решение честно остановиться</ListItem>
-                </List>
-                <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Результат</Heading>
-                <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
-                  <ListItem>Общение и веселье в команде</ListItem>
-                  <ListItem>Опыт быстрого освоения нового</ListItem>
-                  <ListItem>Азарт</ListItem>
-                  <ListItem>Рабочий прототип продукта, который каждый может подпилить под себя</ListItem>
-                </List>
-              </div>
-            </Corner>
-            <Corner top="10vh" right="15vh">
-              <Image src={images.mobile8} style={{ width: '25vw' }} />
             </Corner>
           </FullScreenSlide>
         </SlideSet>
