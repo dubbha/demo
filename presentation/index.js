@@ -561,13 +561,16 @@ export default class Presentation extends React.Component {
             <Corner top="10vh" left="10vh">
               <div style={{ width: '55vw' }}>
                 <Heading size={4} style={{ marginBottom: '8vh' }}>#4 Формирование рамок</Heading>
-
-                <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Проблема</Heading>
-                <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
-                  <ListItem>3 месяца на всё, 2 – на мобайл</ListItem>
-                  <Appear order={1}><ListItem>Желание обязательно что-то улучшить</ListItem></Appear>
-                  <Appear order={1}><ListItem>Решение понять сколько мы реально можем сделать за выделенное время</ListItem></Appear>
-                </List>
+                <Appear>
+                  <div>
+                    <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Проблема</Heading>
+                    <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+                      <ListItem>3 месяца на всё, 2 – на мобайл</ListItem>
+                      <ListItem>Желание обязательно что-то улучшить</ListItem>
+                      <ListItem>Решение понять сколько мы реально можем сделать за выделенное время</ListItem>
+                    </List>
+                  </div>
+                </Appear>
               </div>
             </Corner>
             <Corner top="10vh" right="15vh">
