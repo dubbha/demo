@@ -29,6 +29,7 @@ import createTheme from '../assets/theme';
 
 const imageFileNames = [
   'summer.png',
+  'stomat.jpg',
   'robot.png',
   'lhd.png',
   'claudia.png',
@@ -42,6 +43,16 @@ const imageFileNames = [
   'photos.jpg',
   'monsterUnicorn.jpg',
   'gardenerKiller.jpg',
+  'contrib.png',
+  'palms.jpg',
+  'croton.png',
+  'name.png',
+  'tld.png',
+  'carefree.png',
+  'rrule.png',
+  'gitBranchingStrategy.png',
+  'monorepo.png',
+  'deploy.png',
 
   // server
   '1.png',
@@ -109,14 +120,40 @@ const imageFileNames = [
 const reqImage = name => ({ [name.split('.')[0]]: require(`../assets/${name}`) });
 const images = imageFileNames.reduce((acc, name) => ({ ...acc, ...reqImage(name) }), {});
 
-const sourceFileNames = [
-  // 'installCRA.js',
-];
-const reqSource = name => ({ [name.split('.')[0]]: require(`../assets/code/${name}`) });
-const sources = sourceFileNames.reduce((acc, name) => ({ ...acc, ...reqSource(name) }), {});
+// const sourceFileNames = [
+//   'installCRA.js',
+// ];
+// const reqSource = name => ({ [name.split('.')[0]]: require(`../assets/code/${name}`) });
+// const sources = sourceFileNames.reduce((acc, name) => ({ ...acc, ...reqSource(name) }), {});
 
 
 const videos = {
+  demoLanding: require('../assets/demoLanding.webm'),
+  demoSignUp: require('../assets/demoSignUp.webm'),
+  demoConfirm: require('../assets/demoConfirm.webm'),
+  demoProfileUpdate: require('../assets/demoProfileUpdate.webm'),
+  demoChangeEmail: require('../assets/demoChangeEmail.webm'),
+  demoForgotPassword: require('../assets/demoForgotPassword.webm'),
+  demoChangePassword: require('../assets/demoChangePassword.webm'),
+  demoLoginWithFacebook: require('../assets/demoLoginWithFacebook.webm'),
+  demoLoginWithGoogle: require('../assets/demoLoginWithGoogle.webm'),
+  demoAddFacebookToProfile: require('../assets/demoAddFacebookToProfile.webm'),
+  demoAddShelf: require('../assets/demoAddShelf.webm'),
+  demoEditShelf: require('../assets/demoEditShelf.webm'),
+  demoDeleteShelf: require('../assets/demoDeleteShelf.webm'),
+  demoInviteUser: require('../assets/demoInviteUser.webm'),
+  demoAcceptInviteEmail: require('../assets/demoAcceptInviteEmail.webm'),
+  demoAcceptInvite: require('../assets/demoAcceptInvite.webm'),
+  demoInviteExisting: require('../assets/demoInviteExisting.webm'),
+  demoAcceptInviteExisting: require('../assets/demoAcceptInviteExisting.webm'),
+  demoAddFlower: require('../assets/demoAddFlower.webm'),
+  demoMarkPerformed: require('../assets/demoMarkPerformed.webm'),
+  demoAddDeleteImage: require('../assets/demoAddDeleteImage.webm'),
+  demoMoveFlower: require('../assets/demoMoveFlower.webm'),
+  demoLateActions: require('../assets/demoLateActions.webm'),
+  demoStatsLog: require('../assets/demoStatsLog.webm'),
+  demoResizeFlower: require('../assets/demoResizeFlower.webm'),
+  demoNotification: require('../assets/demoNotification.webm'),
   mobile1: require('../assets/mobile1.webm'),
   mobile3: require('../assets/mobile3.webm'),
   mobile41: require('../assets/mobile41.webm'),
@@ -364,7 +401,7 @@ export default class Presentation extends React.Component {
         <Slide>
           <Heading>Команда</Heading>
         </Slide>
-        <FullScreenSlide>
+        <FullScreenSlide bgImage={images.palms} bgColor="rgba(0, 0, 0, 0.4)">
           <Image src={images.team} />
         </FullScreenSlide>
 
@@ -403,12 +440,28 @@ export default class Presentation extends React.Component {
         <FullScreenImage src={images.lhd} />
 
         <Slide>
-          <Heading>Ограничения: Пространство</Heading>
+          <FullScreenImage src={images.stomat} align="right"/>
+          <Corner left="8vh" top="8vh">
+            <Heading>Ограничения:<br/>Пространство</Heading>
+          </Corner>
         </Slide>
 
-        <Slide>
-          <Heading>Процессы</Heading>
-        </Slide>
+        <FullScreenSlide>
+          <Corner top="10vh" left="10vh">
+            <Heading size={3} style={{ marginBottom: '8vh' }}>Процессы и Инструменты</Heading>
+            <Appear>
+              <div>
+                <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+                  <ListItem>Синкапы дважды в неделю FREQ=WEEKLY;BYDAY=TU,TH;BYHOUR=18;BYMINUTE=10</ListItem>
+                  <ListItem>Slack в остальное время, включая выходные</ListItem>
+                  <ListItem>Trello для распределения задач</ListItem>
+                  <ListItem>Toptal Tracker для учета времени</ListItem>
+                  <ListItem>GitHub, демократия, свобода воли и внутренняя мотивация</ListItem>
+                </List>
+              </div>
+            </Appear>
+          </Corner>
+        </FullScreenSlide>
 
         <FullScreenSlide bgImage={images.sad}>
           <Corner left="20vh" top="20vh">
@@ -417,8 +470,162 @@ export default class Presentation extends React.Component {
         </FullScreenSlide>
         <FullScreenImage src={images.robot} />
 
+        <FullScreenSlide>
+          <Corner top="10vh" left="10vh">
+            <Heading size={4} style={{ marginBottom: '8vh' }}>Обзор функциональности</Heading>
+            <Appear>
+              <div>
+                <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+                  <ListItem>Регистрация, аутентификация, авторизация</ListItem>
+                  <ListItem>Управление пользователями</ListItem>
+                  <ListItem>Управление полочками</ListItem>
+                  <ListItem>Управление цветочными горшками (с цветочками в них)</ListItem>
+                  <ListItem>Уход за цветочками</ListItem>
+                </List>
+              </div>
+            </Appear>
+          </Corner>
+        </FullScreenSlide>
 
         <FullScreenSlide>
+          <Corner top="10vh" left="10vh">
+            <Heading size={4} style={{ marginBottom: '8vh' }}>Обзор сценариев</Heading>
+            <Appear>
+              <div>
+                <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+                  <ListItem>Регистрация, подтверждение имейла, логин, восстановление пароля</ListItem>
+                  <ListItem>Логин через соцсети</ListItem>
+                  <ListItem>Профиль пользователя, редактирование, изменение имейла</ListItem>
+                  <ListItem>Создание/редактирование/удаление полочки</ListItem>
+                  <ListItem>Приглашение помощников для ухода за цветами на полочке</ListItem>
+                  <ListItem>Создание/редактирование/удаление цветочка, планирование ухода</ListItem>
+                  <ListItem>Совершение действий в соответствии с расписанием</ListItem>
+                  <ListItem>Галерея фоточек любимого цветочка</ListItem>
+                  <ListItem>Перемещение цветочка между полочками</ListItem>
+                  <ListItem>Статистика, журнал действий</ListItem>
+                  <ListItem>Уведомления</ListItem>
+                </List>
+              </div>
+            </Appear>
+          </Corner>
+        </FullScreenSlide>
+
+        <FullScreenSlide style={{ backgroundColor: 'white' }}>
+          <Image src={images.name}/>
+          <Appear>
+            <Image
+              src={images.croton}
+              style={{
+                position: 'absolute',
+                margin: 0,
+                top: 'calc(50% - 373px)',
+                left: 'calc(50% - 373px)',
+              }}
+            />
+          </Appear>
+          <Appear>
+            <Image
+              src={images.tld}
+              style={{
+                position: 'absolute',
+                margin: 0,
+                top: 'calc(50% - 373px)',
+                left: 'calc(50% - 373px)',
+              }}
+            />
+          </Appear>
+          <Appear>
+            <Image
+              src={images.carefree}
+              style={{
+                position: 'absolute',
+                margin: 0,
+                top: 'calc(50% - 373px)',
+                left: 'calc(50% - 373px)',
+              }}
+            />
+          </Appear>
+        </FullScreenSlide>
+
+        {/* Demo */}
+        <FullScreenVideo name="demoLanding" />
+        <FullScreenVideo name="demoSignUp" />
+        <FullScreenVideo name="demoConfirm" />
+        <FullScreenVideo name="demoLoginWithGoogle" />
+        <FullScreenVideo name="demoLoginWithFacebook" />
+        <FullScreenVideo name="demoProfileUpdate" />
+        <FullScreenVideo name="demoChangeEmail" />
+        <FullScreenVideo name="demoForgotPassword" />
+        <FullScreenVideo name="demoChangePassword" />
+        <FullScreenVideo name="demoAddShelf" />
+        <FullScreenVideo name="demoEditShelf" />
+        <FullScreenVideo name="demoDeleteShelf" />
+        <FullScreenVideo name="demoInviteUser" />
+        <FullScreenVideo name="demoAcceptInviteEmail" />
+        <FullScreenVideo name="demoAcceptInvite" />
+        <FullScreenVideo name="demoInviteExisting" />
+        <FullScreenVideo name="demoAcceptInviteExisting" />
+        <FullScreenVideo name="demoAddFlower" />
+        <FullScreenVideo name="demoMarkPerformed" />
+        <FullScreenVideo name="demoAddDeleteImage" />
+        <FullScreenVideo name="demoMoveFlower" />
+        <FullScreenVideo name="demoLateActions" />
+        <FullScreenVideo name="demoStatsLog" />
+        <FullScreenVideo name="demoResizeFlower" />
+        <FullScreenVideo name="demoNotification" />
+
+        <FullScreenSlide style={{ backgroundColor: 'white' }}>
+          <Corner top="10vh" left="10vh">
+            <Heading size={4} style={{ ...styles.grassDark, marginBottom: '4vh' }}>Технологии</Heading>
+            <List style={{ listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+              <ListItem>TypeScript</ListItem>
+              <ListItem>React, Hooks</ListItem>
+              <ListItem>Redux, react-redux, redux-saga, connected-react-router</ListItem>
+              <ListItem>react-bootstrap</ListItem>
+              <ListItem>jest, @testing-library/react, redux-saga-test-plan</ListItem>
+            </List>
+            <Heading size={4} style={{ ...styles.grassDark, margin: '8vh 0 4vh' }}>Структура</Heading>
+            <List style={{ listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
+              <ListItem>elements – обернутые компоненты react-bootstrap</ListItem>
+              <ListItem>components – например, LoginForm</ListItem>
+              <ListItem>pages – например, Login page</ListItem>
+            </List>
+          </Corner>
+        </FullScreenSlide>
+        <FullScreenSlide style={{ backgroundColor: 'white' }}>
+          <Heading size={3} style={styles.grassDark}>RRule</Heading>
+          <Image src={images.rrule}/>
+          <Corner left="60px" bottom="60px">
+            <div>
+              <Link href="https://tools.ietf.org/html/rfc5545">https://tools.ietf.org/html/rfc5545</Link>
+            </div>
+            <div>
+              <Link href="https://jakubroztocil.github.io/rrule/">https://jakubroztocil.github.io/rrule/</Link>
+            </div>
+            <div>
+              <Link href="https://github.com/Fafruch/react-rrule-generator">https://github.com/Fafruch/react-rrule-generator</Link>
+            </div>
+          </Corner>
+        </FullScreenSlide>
+        <FullScreenSlide style={{ backgroundColor: 'white' }}>
+          <Image src={images.monorepo}/>
+        </FullScreenSlide>
+        <FullScreenSlide style={{ backgroundColor: 'white' }}>
+          <Image src={images.gitBranchingStrategy}/>
+          <Corner right="60px" bottom="60px">
+            <Link href="https://github.com/dubbha/croton/wiki/Git-Branching-Strategy">https://github.com/dubbha/croton/wiki/Git-Branching-Strategy</Link>
+          </Corner>
+        </FullScreenSlide>
+        <FullScreenSlide style={{ backgroundColor: 'white' }}>
+          <Image src={images.deploy}/>
+          <Corner bottom="60px" left="60px">
+            <List style={{ listStyle: 'disc outside none', marginLeft: '2.5vw' }}>
+              <Appear><ListItem style={{ fontSize: '3vh' }}>AWS CodeBuild + S3 Bucket Hosting = No HTTPS support</ListItem></Appear>
+              <Appear><ListItem style={{ fontSize: '3vh' }}>Social login: Facebook requires HTTPS, Google requires TLD</ListItem></Appear>
+            </List>
+          </Corner>
+        </FullScreenSlide>
+        <FullScreenSlide style={{ backgroundColor: 'white' }}>
           <Image src={images.claudia}/>
           <Appear>
             <Image
@@ -442,26 +649,26 @@ export default class Presentation extends React.Component {
         </FullScreenSlide>
 
         <FullScreenSlide>
-          <Heading>Проблема раз, деплой</Heading>
+          <Heading>Проблема раз,<br/>деплой</Heading>
         </FullScreenSlide>
 
-        <SlideSet>
-          <FullScreenSlide style={{ backgroundColor: 'white' }}>
+        <FullScreenSlide>
+          <div style={{ display: 'inline-block', backgroundColor: 'white', padding: '20px' }}>
             <Image src={images['1']} />
-          </FullScreenSlide>
-          <FullScreenSlide>
-            <Image src={images['2']} />
-          </FullScreenSlide>
-          <FullScreenSlide>
-            <Image src={images['3']} />
-          </FullScreenSlide>
-          <FullScreenSlide>
-            <Image src={images['4']} />
-          </FullScreenSlide>
-        </SlideSet>
+          </div>
+        </FullScreenSlide>
+        <FullScreenSlide>
+          <Image src={images['2']} />
+        </FullScreenSlide>
+        <FullScreenSlide>
+          <Image src={images['3']} />
+        </FullScreenSlide>
+        <FullScreenSlide>
+          <Image src={images['4']} />
+        </FullScreenSlide>
 
         <FullScreenSlide>
-          <Heading>Проблема два, миграции</Heading>
+          <Heading>Проблема два,<br/>миграции</Heading>
         </FullScreenSlide>
 
         <SlideSet>
@@ -469,7 +676,9 @@ export default class Presentation extends React.Component {
             <Image src={images['5']} />
           </FullScreenSlide>
           <FullScreenSlide>
-            <Image src={images['6']} />
+            <div style={{ display: 'inline-block', backgroundColor: 'white', padding: '20px' }}>
+              <Image src={images['6']} />
+            </div>
           </FullScreenSlide>
           <FullScreenSlide>
             <Image src={images['7']} />
@@ -477,7 +686,7 @@ export default class Presentation extends React.Component {
         </SlideSet>
 
         <FullScreenSlide>
-          <Heading>Проблема три, сервис воркеры</Heading>
+          <Heading>Проблема три,<br/>сервис воркеры</Heading>
         </FullScreenSlide>
 
         <SlideSet>
@@ -639,10 +848,10 @@ export default class Presentation extends React.Component {
             <Corner top="10vh" left="10vh">
               <div style={{ width: '55vw' }}>
                 <Heading size={4} style={{ marginBottom: '8vh' }}>#4 Формирование рамок</Heading>
-                <div style={{ position: "relative", height: "90vh" }}>
+                <div style={{ position: 'relative', height: '90vh' }}>
                   <Appear>
-                    <div style={{ position: "absolute", left: "0", top: "0", width: "100%", height: "100%", background: "#161616"}}>
-                      <div style={{ position: "relative", width: "100%", height: "100%" }}>
+                    <div style={{ position: 'absolute', left: '0', top: '0', width: '100%', height: '100%', background: '#161616'}}>
+                      <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                         <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Проблема</Heading>
                         <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
                           <ListItem>3 месяца на всё, 2 – на мобайл</ListItem>
@@ -656,8 +865,8 @@ export default class Presentation extends React.Component {
                     </div>
                   </Appear>
                   <Appear>
-                    <div style={{ position: "absolute", left: "0", top: "0", width: "100%", height: "100%", background: "#161616" }}>
-                      <div style={{ position: "relative", width: "100%", height: "100%" }}>
+                    <div style={{ position: 'absolute', left: '0', top: '0', width: '100%', height: '100%', background: '#161616' }}>
+                      <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                         <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Решение</Heading>
                         <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
                           <ListItem>Разделять базовый функционал от новых фич</ListItem>
@@ -690,6 +899,12 @@ export default class Presentation extends React.Component {
             <Heading style={styles.grass3D}>≠</Heading>
           </Center>
           <Image src={images.monsterUnicorn} />
+        </FullScreenSlide>
+        <FullScreenSlide>
+          <Image src={images.contrib} />
+          <Corner right="60px" bottom="60px">
+            <Link href="https://github.com/dubbha/croton">https://github.com/dubbha/croton</Link>
+          </Corner>
         </FullScreenSlide>
         <FullScreenSlide>
           <Center>
