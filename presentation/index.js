@@ -576,7 +576,7 @@ export default class Presentation extends React.Component {
 
         <FullScreenSlide style={{ backgroundColor: 'white' }}>
           <Corner top="10vh" left="10vh">
-            <Heading size={4} style={{ ...styles.grassDark, marginBottom: '4vh' }}>Технологии</Heading>
+            <Heading size={4} style={{ ...styles.grassDark, marginBottom: '4vh' }}>Web Tech Stack</Heading>
             <List style={{ listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
               <ListItem>TypeScript</ListItem>
               <ListItem>React, Hooks</ListItem>
@@ -584,11 +584,11 @@ export default class Presentation extends React.Component {
               <ListItem>react-bootstrap</ListItem>
               <ListItem>jest, @testing-library/react, redux-saga-test-plan</ListItem>
             </List>
-            <Heading size={4} style={{ ...styles.grassDark, margin: '8vh 0 4vh' }}>Структура</Heading>
+            <Heading size={4} style={{ ...styles.grassDark, margin: '8vh 0 4vh' }}>Structure</Heading>
             <List style={{ listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
-              <ListItem>elements – обернутые компоненты react-bootstrap</ListItem>
-              <ListItem>components – например, LoginForm</ListItem>
-              <ListItem>pages – например, Login page</ListItem>
+              <ListItem>elements – wrapped react-bootstrap components</ListItem>
+              <ListItem>components – e.g. LoginForm</ListItem>
+              <ListItem>pages – e.g. Login page</ListItem>
             </List>
           </Corner>
         </FullScreenSlide>
