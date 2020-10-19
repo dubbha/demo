@@ -43,6 +43,19 @@ const imageFileNames = [
   'monsterUnicorn.jpg',
   'gardenerKiller.jpg',
 
+  // server
+  '1.png',
+  '2.png',
+  '3.png',
+  '4.png',
+  '5.png',
+  '6.png',
+  '7.png',
+  '8.png',
+  '9.png',
+  '10.png',
+  '11.png',
+
   // mobile
   'mobile7.gif',
   'mobile8.gif',
@@ -354,7 +367,7 @@ export default class Presentation extends React.Component {
         <FullScreenSlide>
           <Image src={images.team} />
         </FullScreenSlide>
-        
+
         <Slide>
           <Heading>Ограничения: Время</Heading>
         </Slide>
@@ -419,6 +432,68 @@ export default class Presentation extends React.Component {
             />
           </Appear>
         </FullScreenSlide>
+
+        {/* Server */}
+        <FullScreenSlide>
+          <Heading>Server</Heading>
+          <Appear style={{ marginTop: '20px' }}>
+            <Heading size={5} style={{ color: 'white', lineHeight: '2' }}>Что завелось без проблем - <span style={{ textDecoration: 'line-through' }}>всё</span> почти всё</Heading>
+          </Appear>
+        </FullScreenSlide>
+
+        <FullScreenSlide>
+          <Heading>Проблема раз, деплой</Heading>
+        </FullScreenSlide>
+
+        <SlideSet>
+          <FullScreenSlide style={{ backgroundColor: 'white' }}>
+            <Image src={images['1']} />
+          </FullScreenSlide>
+          <FullScreenSlide>
+            <Image src={images['2']} />
+          </FullScreenSlide>
+          <FullScreenSlide>
+            <Image src={images['3']} />
+          </FullScreenSlide>
+          <FullScreenSlide>
+            <Image src={images['4']} />
+          </FullScreenSlide>
+        </SlideSet>
+
+        <FullScreenSlide>
+          <Heading>Проблема два, миграции</Heading>
+        </FullScreenSlide>
+
+        <SlideSet>
+          <FullScreenSlide>
+            <Image src={images['5']} />
+          </FullScreenSlide>
+          <FullScreenSlide>
+            <Image src={images['6']} />
+          </FullScreenSlide>
+          <FullScreenSlide>
+            <Image src={images['7']} />
+          </FullScreenSlide>
+        </SlideSet>
+
+        <FullScreenSlide>
+          <Heading>Проблема три, сервис воркеры</Heading>
+        </FullScreenSlide>
+
+        <SlideSet>
+          <FullScreenSlide>
+            <Image src={images['8']} />
+          </FullScreenSlide>
+          <FullScreenSlide>
+            <Image src={images['9']} />
+          </FullScreenSlide>
+          <FullScreenSlide>
+            <Image src={images['10']} />
+          </FullScreenSlide>
+          <FullScreenSlide>
+            <Image src={images['11']} />
+          </FullScreenSlide>
+        </SlideSet>
 
         {/* Mobile */}
         <SlideSet style={{ backgroundColor: '#161616' }}>
