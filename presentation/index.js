@@ -53,6 +53,8 @@ const imageFileNames = [
   'gitBranchingStrategy.png',
   'monorepo.png',
   'deploy.png',
+  'deployEC2.png',
+  'cpuCredit.png',
 
   // server
   '1.png',
@@ -579,16 +581,13 @@ export default class Presentation extends React.Component {
             <Heading size={4} style={{ ...styles.grassDark, marginBottom: '4vh' }}>Web Tech Stack</Heading>
             <List style={{ listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
               <ListItem>TypeScript</ListItem>
-              <ListItem>React, Hooks</ListItem>
-              <ListItem>Redux, react-redux, redux-saga, connected-react-router</ListItem>
-              <ListItem>react-bootstrap</ListItem>
+              <ListItem>React, Hooks, create-react-app</ListItem>
+              <ListItem>Redux, redux-persist, reselect</ListItem>
+              <ListItem>react-redux, redux-saga, connected-react-router</ListItem>
               <ListItem>jest, @testing-library/react, redux-saga-test-plan</ListItem>
-            </List>
-            <Heading size={4} style={{ ...styles.grassDark, margin: '8vh 0 4vh' }}>Structure</Heading>
-            <List style={{ listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
-              <ListItem>elements – wrapped react-bootstrap components</ListItem>
-              <ListItem>components – e.g. LoginForm</ListItem>
-              <ListItem>pages – e.g. Login page</ListItem>
+              <ListItem>axios, react-facebook-login, react-google-login</ListItem>
+              <ListItem>react-bootstrap, react-calendar-heatmap, react-tooltip</ListItem>
+              <ListItem>rrule, react-rrule-generator</ListItem>
             </List>
           </Corner>
         </FullScreenSlide>
@@ -620,9 +619,17 @@ export default class Presentation extends React.Component {
           <Image src={images.deploy}/>
           <Corner bottom="60px" left="60px">
             <List style={{ listStyle: 'disc outside none', marginLeft: '2.5vw' }}>
-              <Appear><ListItem style={{ fontSize: '3vh' }}>AWS CodeBuild + S3 Bucket Hosting = No HTTPS support</ListItem></Appear>
+              <Appear><ListItem style={{ fontSize: '3vh' }}>AWS S3 Bucket Hosting = No HTTPS support</ListItem></Appear>
               <Appear><ListItem style={{ fontSize: '3vh' }}>Social login: Facebook requires HTTPS, Google requires TLD</ListItem></Appear>
             </List>
+          </Corner>
+        </FullScreenSlide>
+        <FullScreenSlide style={{ backgroundColor: 'white' }}>
+          <Image src={images.deployEC2}/>
+          <Corner bottom="60px" left="60px">
+            <Appear>
+              <Image src={images.cpuCredit}/>
+            </Appear>
           </Corner>
         </FullScreenSlide>
         <FullScreenSlide style={{ backgroundColor: 'white' }}>
