@@ -734,7 +734,7 @@ export default class Presentation extends React.Component {
           <FullScreenSlide>
             <Corner top="10vh" left="10vh">
               <div style={{ width: '55vw' }}>
-                <Heading size={4} style={{ marginBottom: '8vh' }}>#1 Активация email</Heading>
+                <Heading size={4} style={{ marginBottom: '8vh' }}>#1 Активация пользователя</Heading>
                 <Appear>
                   <div>
                     <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Проблема</Heading>
@@ -744,7 +744,7 @@ export default class Presentation extends React.Component {
                 <Appear>
                   <div>
                     <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Решение</Heading>
-                    <Text style={{ color: 'white' }}>Нотифай с кодом активации</Text>
+                    <Text style={{ color: 'white' }}>Пуш-нотификация с кодом активации</Text>
                   </div>
                 </Appear>
                 <Appear>
@@ -783,7 +783,7 @@ export default class Presentation extends React.Component {
                   <Heading size={5} style={{ color: 'white', margin: '8vh 0 2vh' }}>Результат</Heading>
                   <Appear>
                     <div style={{ position: 'absolute', left: 0 }}>
-                      <Text style={{ color: 'white', lineHeight: '1.5' }}>Компоненты выглядят похоже...</Text>
+                      <Text style={{ color: 'white', lineHeight: '1.5' }}>Теперь компоненты выглядят похоже...</Text>
                     </div>
                   </Appear>
                   <Appear>
@@ -815,7 +815,7 @@ export default class Presentation extends React.Component {
                       <Heading size={5} style={{ color: 'white', marginBottom: '2vh' }}>Проблема</Heading>
                       <List style={{ color: 'white', listStyle: 'disc outside none', marginLeft: '2.5vw', lineHeight: '1.5' }}>
                         <ListItem>Подавать расписания в одном формате с веб-частью</ListItem>
-                        <ListItem>Нет компонента React RRule Generator для React Native</ListItem>
+                        <ListItem>Отсутствие React RRule Generator для React Native</ListItem>
                       </List>
                     </div>
                   </Appear>
