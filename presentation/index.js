@@ -680,12 +680,12 @@ export default class Presentation extends React.Component {
 
         <SlideSet>
           <FullScreenSlide>
-            <Image src={images['5']} />
-          </FullScreenSlide>
-          <FullScreenSlide>
             <div style={{ display: 'inline-block', backgroundColor: 'white', padding: '20px' }}>
               <Image src={images['6']} />
             </div>
+          </FullScreenSlide>
+          <FullScreenSlide>
+            <Image src={images['5']} />
           </FullScreenSlide>
           <FullScreenSlide>
             <Image src={images['7']} />
