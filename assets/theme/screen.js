@@ -35,7 +35,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
     googleFonts,
     global: {
       body: {
-        background: colors.primary,
+        background: '#161616',
         fontFamily: fonts.primary,
         fontWeight: 'normal',
         fontSize: '2em',
@@ -234,7 +234,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
         minWidth: '100%',
         maxWidth: '100%', // maxWidth: 800
         '& ::selection': {
-          backgroundColor: colors.brainDark,
+          backgroundColor: colors.grassDark,
           color: colors.secondary,
         },
       },
@@ -275,7 +275,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
       },
       heading: {
         h1: {
-          color: colors.tertiary,
+          color: colors.grass,
           fontSize: '7.05rem',
           fontFamily: fonts.primary,
           lineHeight: 1,
@@ -284,7 +284,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           zoom: 1
         },
         h2: {
-          color: colors.secondary,
+          color: colors.grass,
           fontSize: '5.88rem',
           fontFamily: fonts.primary,
           lineHeight: 1,
@@ -292,7 +292,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           margin: 0
         },
         h3: {
-          color: 'black',
+          color: colors.grass,
           fontSize: '4.9rem',
           fontFamily: fonts.primary,
           lineHeight: 1,
@@ -300,7 +300,7 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
           margin: '0.5rem auto'
         },
         h4: {
-          color: 'black',
+          color: colors.grass,
           fontSize: '3.82rem',
           fontFamily: fonts.primary,
           lineHeight: 1,
@@ -330,9 +330,9 @@ const screen = (colorArgs = defaultColors, fontArgs = defaultFonts) => {
       },
       link: {
         textDecoration: 'none',
-        color: colors.brainDark,
+        color: colors.grass,
         '&:hover': {
-          color: colors.brainLight
+          color: colors.grassLight
         }
       },
       listItem: {
