@@ -28,7 +28,7 @@ import {
 import createTheme from '../assets/theme';
 
 const imageFileNames = [
-  'summer.png',
+  'summer.jpg',
   'stomat.jpg',
   'robot.png',
   'lhd.png',
@@ -400,8 +400,7 @@ export default class Presentation extends React.Component {
         controls={false}
         progress="bar"
       >
-        <FullScreenImage src={images.summer} style={{ backgroundColor: 'black' }} />
-
+        <Slide><FullScreenImage src={images.summer} /></Slide>
         <Slide>
           <Heading>Команда</Heading>
         </Slide>
@@ -409,14 +408,14 @@ export default class Presentation extends React.Component {
           <Image src={images.team} />
         </FullScreenSlide>
 
-
-
         <FullScreenSlide bgImage={images.sad}>
           <Corner left="20vh" top="20vh">
             <Heading>Проблема</Heading>
           </Corner>
         </FullScreenSlide>
-        <FullScreenImage src={images.robot} />
+        <Slide>
+          <FullScreenImage src={images.robot} />
+        </Slide>
         <FullScreenSlide>
           <Image src={images.webMobile} />
         </FullScreenSlide>
@@ -462,19 +461,17 @@ export default class Presentation extends React.Component {
         </FullScreenSlide>
 
         {/* Demo Main */}
-        <FullScreenVideo name="demoLanding" />
-        <FullScreenVideo name="demoAddShelf" />
-        <FullScreenVideo name="demoInviteUser" />
-        <FullScreenVideo name="demoAddFlower" />
-        <FullScreenVideo name="demoMarkPerformed" />
-        <FullScreenVideo name="demoAddDeleteImage" />
-        <FullScreenVideo name="demoNotification" />
-        <FullScreenVideo name="demoLateActions" />
-        <FullScreenVideo name="demoStatsLog" />
-        <FullScreenVideo name="demoResizeFlower" />
-        <FullScreenSlide>
-          <FullScreenVideo name="demoMobilePhoto" />
-        </FullScreenSlide>
+        <Slide><FullScreenVideo name="demoLanding" /></Slide>
+        <Slide><FullScreenVideo name="demoAddShelf" /></Slide>
+        <Slide><FullScreenVideo name="demoInviteUser" /></Slide>
+        <Slide><FullScreenVideo name="demoAddFlower" /></Slide>
+        <Slide><FullScreenVideo name="demoMarkPerformed" /></Slide>
+        <Slide><FullScreenVideo name="demoAddDeleteImage" /></Slide>
+        <Slide><FullScreenVideo name="demoNotification" /></Slide>
+        <Slide><FullScreenVideo name="demoLateActions" /></Slide>
+        <Slide><FullScreenVideo name="demoStatsLog" /></Slide>
+        <Slide><FullScreenVideo name="demoResizeFlower" /></Slide>
+        <Slide><FullScreenVideo name="demoMobilePhoto" /></Slide>
         
         {/* We could show most of it */}
 
@@ -883,7 +880,7 @@ export default class Presentation extends React.Component {
             />
           </Appear>
         </FullScreenSlide> */}
-        <FullScreenImage src={images.lhd} />
+        <Slide><FullScreenImage src={images.lhd} /></Slide>
 
         <Slide>
           <FullScreenImage src={images.stomat} align="right"/>
